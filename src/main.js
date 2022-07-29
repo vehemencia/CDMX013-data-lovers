@@ -38,3 +38,13 @@ console.log(titulo.length)
 console.log(titulo) //Nos devuelve los títulos en un array
 console.log(director) */
 //console.log(tittle[1])
+
+//Obteniendo los links de las imágenes
+let imagen = films.map(obj => {
+    return obj.poster;
+})
+console.log(imagen)
+
+for(let i=0; i<= imagen.length-1; i++){
+    document.getElementById("filters").innerText = (imagen)
+}
