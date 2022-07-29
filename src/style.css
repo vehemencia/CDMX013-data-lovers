@@ -1,0 +1,34 @@
+header {
+    background-color: #F5A661;
+    text-align: left;
+}
+
+#ghilogo {
+    height: 150px;
+    width: auto;
+    margin-left: 40px;
+}
+
+#searchbox {
+    background-color: #FAE6CE;
+    border: none;
+    border-radius: 20px;
+    float: right;
+    height: 40px;
+    width: 250px;
+    display: none;
+}
+
+body {
+    background-color: #C2F4F8;
+}
+
+#sortBy {
+    background-color: #F5705A;
+    height: 50px;
+}
+
+#root{
+    height: 100px;
+    background-color: violet;
+}
