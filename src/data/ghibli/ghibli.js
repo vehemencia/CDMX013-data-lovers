@@ -1861,7 +1861,7 @@ export default {
       director: "Hiromasa Yonebayashi",
       producer: "Toshio Suzuki",
       poster:
-        "https://static.wikia.nocookie.net/studio-ghibli/images/4/46/The_Borrower_Arrietty.jpg",
+        "https://static.wikia.nocookie.net/studio-ghibli/images/f/f7/The_Secret_World_of_Arrietty.jpg/revision/latest?cb=20210306220734",
       release_date: "2010",
       rt_score: "95",
       people: [
