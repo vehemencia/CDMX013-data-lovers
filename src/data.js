@@ -7,7 +7,3 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
-
-export const holi = () => {
-  return 'Hola';
-};
