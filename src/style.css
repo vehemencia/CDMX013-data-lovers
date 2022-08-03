@@ -5,6 +5,7 @@
 header {
     background-color: #f5a661;
     text-align: left;
+    display: flex;
 }
 
 #ghilogo {
@@ -20,13 +21,13 @@ header {
     float: right;
     height: 40px;
     width: 250px;
-    display: none;
+    display:none;
 }
 
 body {
     background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
     background-repeat: no-repeat;
-    background-position: left;
+    background-position: 90;
     background-color: #c2f4f8;
 }
 
@@ -36,6 +37,7 @@ body {
 }
 
 #root {
+    padding-left: 380px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around
@@ -57,17 +59,34 @@ body {
     margin: 20px;
     width: 300px;
     font-family: 'Roboto Flex', sans-serif;
-    font-size: 15px;
+    padding: 20px 0;
 }
+
+h1 {
+    padding: 0 20px;
+    font-size: 20px;
+    height: 50px;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
 .cardPoster{
     height: 300px;
     width: auto;
 }
 
-.infoButton {
+.botonn {
     border-radius: 30px;
     border: none;
     background-color: #DFF681;
     font-size: 15px;
     font-weight: 700;
+    margin-top: 10px;
+    display: none;
 }
+
+/* .infoCard {
+    display: none;
+} */
