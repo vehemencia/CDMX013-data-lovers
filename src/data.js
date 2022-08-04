@@ -15,4 +15,3 @@ export const anotherExample = () => {
 //   }
 //
 
-export let holi = alert(':000 hola');

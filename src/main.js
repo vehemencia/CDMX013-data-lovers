@@ -20,27 +20,39 @@ let showingCards = obtainingFilms.map(obj => {
 
 // // Acá probamos el método .sort(), que nos devolvió el arreglo en órden alfabético
 let movieNames = obtainingFilms.map(obj => {
-     return obj.title;
+    return obj.title;
 });
 // console.log(movieNames);
 // console.log(movieNames.sort());
 
-// ESTE NO TOCAR SOLO ESTÁ COMENTADO
+let filmsByName = obtainingFilms;
+function orderByLetterA(a, b) {
+    if (a.title < b.title) {
+        return -1;
+    }
+}
+function orderByLetterZ(a, b) {
+    if (a.title > b.title) {
+        return -1;
+    }
+}
+
 let dropDownMenu = document.getElementById("sortingMenu");
 dropDownMenu.addEventListener("change", function pruebaUno() {
-    //console.log(document.getElementById("sortingMenu").value);
-    if (dropDownMenu.value === "AZ"){
-        console.log(movieNames.sort())
+    if (dropDownMenu.value === "AZ") {
+        let sortedTitlesA = filmsByName.sort(orderByLetterA);
+        //console.log(filmsByName.sort(orderByLetterA));
+        let onlyNames = (sortedTitlesA.map(obj => {
+            return obj.title + " " + obj.poster;
+        }));
+        console.log(onlyNames);
     }
-    if (dropDownMenu.value === "ZA"){
-        console.log("adiós")
+    if (dropDownMenu.value === "ZA") {
+        let sortedTitlesZ = filmsByName.sort(orderByLetterZ);
+        // console.log(filmsByName.sort(orderByLetterZ));
+        let onlyNamesZ = (sortedTitlesZ.map(obj => {
+            return obj.title + " " + obj.poster;
+        }));
+        console.log(onlyNamesZ);
     }
-} );
-
-// let arrayTest = ['Canon', 'Sony', 'Olympus', 'Minolta', 'Fuji'];
-
-// function compareElements(a, b) {
-//     if (a > b) {
-//         return -1;
-//     }
-// }
+});
