@@ -1,113 +1,62 @@
-import { example, anotherExample } from './data.js';
-// import data from './data/lol/lol.js';
+// import { example, anotherExample } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
-// import data from './data/rickandmorty/rickandmorty.js';
 
-//document.getElementById("tittle").innerText = "La producccion es" + movies.studio;
-//let prueba = document.getElementById("root").innerText
-console.log(example, anotherExample)
+// Obteniendo el arreglo con 20 elementos
+const obtainingFilms = ghibli.films;
+// console.log(films);
 
-//Obteniendo el arreglo con 20 elementos
-let films = ghibli.films;
-console.log(films);
-
-
-
-//Obteniendo los títulos del objeto films en un arreglo de 20 elementos
-let titulo = films.map(obj => {
-    return obj.title;
-})
-console.log(titulo)
-
-//Obteniendo las imágenes del objeto films en un arreglo de 20 elementos
-let imagen = films.map(obj => {
-    return obj.poster;
-})
-console.log(imagen)
-
-
-//AQUI CON MAP, LOGRAMOS LLAMAR CADA ELEMENTO 
-let filmsGhibli = films.map(obj => {
-    document.getElementById("root").innerHTML += 
-    `
-        <div class="card">
-        <h1> "${obj.title}" </h1>
-        <img src="${obj.poster}"/>
-        </div>
-        `
-}) 
-
-
-
-//ESTO FUNCIONA, SE CONSTRUYÓ EL 01-AGO
-/* for(let i=0; i<= titulo.length-1 && i<= imagen.length-1; i++){
-    document.getElementById("root").innerHTML += 
-    `
-        <div class="card">
-        <h1> "${titulo[i]}" </h1>
-        <img src="${imagen[i]}"/>
-        </div>
-        `
-        } 
-        console.log(titulo[i])  */
- 
-
-//SE RECORREN LOS TÍTULOS Y SE OBTIENE
-/* for(let i=0; i<= titulo.length-1; i++){
-    document.getElementById("root").innerHTML += 
-    `
-    <div class="card">
-    <h1 class="movieName">${titulo[i]}</h1>
-  </div>
-`
-} */
-
-/* function datosDinamicos(films){
-    let container = document.getElementById("root")
-    for(let i=0; i<= titulo.length-1; i++){
-        container.innerHTML += `
-        <div class="card">
-        <h1 class="movieName">${titulo[i]}</h1>
-      </div>
-`
-    }
-    console.log(films)
-} */
-
-//document.write('<p>' + i + '</p>');
-
-//Obteniendo por separada cada elemento del arreglo.
-titulo.forEach(element => {
-    console.log(element)
-})
-console.log(titulo.length)
-
-
-//Obteniendo los títulos del objeto films
-/* let director = films.map(obj => {
-    return obj.director;
-})
-
-console.log(titulo) //Nos devuelve los títulos en un array
-console.log(director) */
-//console.log(tittle[1])
-
-//Obteniendo los links de las imágenes
-/* let imagen = films.map(obj => {
-    return obj.poster;
-})
-console.log(imagen) */
-
-/* for(let i=0; i<= imagen.length-1; i++){
-    document.getElementById("filters").innerText = (imagen)
+function showCards(films) {
+   return films.map(obj => {
+        document.getElementById("root").innerHTML +=
+            `
+            <div class="card">
+            <h1>${obj.title}</h1>
+            <img class="cardPoster" src="${obj.poster}"/>
+            <button class="moreInfoButton">Conoce más</button>
+            
+            </div>
+            `
+    });
 }
- */
 
-/* for(let i=0; i<= imagen.length-1; i++){
-document.getElementById("root").innerHTML += 
-`
-<div class="card">
-<img src="${imagen[i]}"/>
-</div>
-`
-}  */
+function cleanCards (){
+    document.getElementById("root").innerHTML = "";
+}
+
+let prueba = showCards(obtainingFilms);
+// Aquí con .map() logramos llamar cada elemento (la -propiedad-) dentro del arreglo
+// let showingCards = obtainingFilms.map(obj => {
+//     document.getElementById("root").innerHTML +=
+//         `
+//         <div class="card">
+//         <h1>${obj.title}</h1>
+//         <img class="cardPoster" src="${obj.poster}"/>
+//         <button class="moreInfoButton">Conoce más</button>
+//         </div>
+//         `
+// });
+
+function orderByLetterA(a, b) {
+    if (a.title < b.title) {
+        return -1;
+    }
+}
+function orderByLetterZ(a, b) {
+    if (a.title > b.title) {
+        return -1;
+    }
+}
+
+let dropDownMenu = document.getElementById("sortingMenu");
+dropDownMenu.addEventListener("change", function() {
+    if (dropDownMenu.value === "AZ") {
+        cleanCards();
+        let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
+        return showCards(filmsFromAtoZ);
+    }
+    if (dropDownMenu.value === "ZA") {
+        cleanCards();
+        let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
+        return showCards(filmsFromZtoA);
+    } 
+});
