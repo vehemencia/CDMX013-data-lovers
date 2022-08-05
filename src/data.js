@@ -7,11 +7,3 @@ export const example = () => {
 export const anotherExample = () => {
   return 'OMG';
 };
-
-
-// function compare(a, b) {
-//   if (a.title = b.title) {
-//     return 0;
-//   }
-//
-
