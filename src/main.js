@@ -2,30 +2,35 @@
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
-let obtainingFilms = ghibli.films;
+const obtainingFilms = ghibli.films;
 // console.log(films);
 
+function showCards(films) {
+   return films.map(obj => {
+        document.getElementById("root").innerHTML +=
+            `
+            <div class="card">
+            <h1>${obj.title}</h1>
+            <img class="cardPoster" src="${obj.poster}"/>
+            <button class="moreInfoButton">Conoce más</button>
+            
+            </div>
+            `
+    });
+}
+let prueba = showCards(obtainingFilms);
 // Aquí con .map() logramos llamar cada elemento (la -propiedad-) dentro del arreglo
-let showingCards = obtainingFilms.map(obj => {
-    document.getElementById("root").innerHTML +=
-        `
-        <div class="card">
-        <h1>${obj.title}</h1>
-        <img class="cardPoster" src="${obj.poster}"/>
-        <button class="moreInfoButton">Conoce más</button>
-        
-        </div>
-        `
-});
+// let showingCards = obtainingFilms.map(obj => {
+//     document.getElementById("root").innerHTML +=
+//         `
+//         <div class="card">
+//         <h1>${obj.title}</h1>
+//         <img class="cardPoster" src="${obj.poster}"/>
+//         <button class="moreInfoButton">Conoce más</button>
+//         </div>
+//         `
+// });
 
-// // Acá probamos el método .sort(), que nos devolvió el arreglo en órden alfabético
-let movieNames = obtainingFilms.map(obj => {
-    return obj.title;
-});
-// console.log(movieNames);
-// console.log(movieNames.sort());
-
-let filmsByName = obtainingFilms;
 function orderByLetterA(a, b) {
     if (a.title < b.title) {
         return -1;
@@ -38,21 +43,13 @@ function orderByLetterZ(a, b) {
 }
 
 let dropDownMenu = document.getElementById("sortingMenu");
-dropDownMenu.addEventListener("change", function pruebaUno() {
+dropDownMenu.addEventListener("change", function() {
     if (dropDownMenu.value === "AZ") {
-        let sortedTitlesA = filmsByName.sort(orderByLetterA);
-        //console.log(filmsByName.sort(orderByLetterA));
-        let onlyNames = (sortedTitlesA.map(obj => {
-            return obj.title + " " + obj.poster;
-        }));
-        console.log(onlyNames);
+        let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
+        return showCards(filmsFromAtoZ);
     }
     if (dropDownMenu.value === "ZA") {
-        let sortedTitlesZ = filmsByName.sort(orderByLetterZ);
-        // console.log(filmsByName.sort(orderByLetterZ));
-        let onlyNamesZ = (sortedTitlesZ.map(obj => {
-            return obj.title + " " + obj.poster;
-        }));
-        console.log(onlyNamesZ);
-    }
+        let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
+        return showCards(filmsFromZtoA);
+    } 
 });
