@@ -51,14 +51,11 @@ dropDownMenu.addEventListener("change", function () {
 });
 
 let yearSelection = document.getElementById("movieyears");
-yearSelection.addEventListener("change", function () {
+yearSelection.addEventListener("change", function () { 
+    cleanCards();
     const moviesByYear = obtainingFilms.filter(function filterMovies(movies) {
-        if (movies.release_date <= "1989" && yearSelection.value == "80s")
+        if (movies.release_date <= "1989" && yearSelection.value == "80s" || movies.release_date >= "1990" && movies.release_date <= "1999" && yearSelection.value == "90s" || movies.release_date >= "2000" &&  yearSelection.value == "00s")
             return movies.release_date;
     })
-    console.log(moviesByYear);
+    showCards(moviesByYear);
 });
-
-
-
-//movies.release_date >= "1990" && movies.release_date <= "1999" || movies.release_date >= "2000"
