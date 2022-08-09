@@ -104,11 +104,15 @@ h1 {
 
 .filters {
     background-color: #DDBC94;
-    width: 200px;
+    width: 250px;
+    height: 30px;
     border-radius: 20px;
     border: none;
+    text-align: center;
 }
-
-/* #filters {
-
-} */
+#resetfilters {
+    width: 250px;
+    height: 30px;
+    border-radius: 20px;
+    color: #ffffff;
+}

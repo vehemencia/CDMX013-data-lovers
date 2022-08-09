@@ -50,7 +50,7 @@ let filmByDirector = document.getElementById("filmdirector");
 filmByDirector.addEventListener("change", function () {
     cleanCards();
     const moviesByDirector = obtainingFilms.filter(function filterDirector(movies) {
-        if (movies.director == "Hayao Miyazaki" && filmdirector.value == "Hayao" || movies.director == "Isao Takahata" && filmdirector.value == "Isao" || movies.director == "Yoshifumi Kondō" && filmdirector.value == "Yoshifumi" || movies.director == "Gorō Miyazaki" && filmdirector.value == "Goro" || movies.director == "Hiromasa Yonebayashi" && filmdirector.value == "Hiromasa")
+        if (movies.director == "Hayao Miyazaki" && filmByDirector.value == "Hayao" || movies.director == "Isao Takahata" && filmByDirector.value == "Isao" || movies.director == "Yoshifumi Kondō" && filmByDirector.value == "Yoshifumi" || movies.director == "Gorō Miyazaki" && filmByDirector.value == "Goro" || movies.director == "Hiromasa Yonebayashi" && filmByDirector.value == "Hiromasa")
             return movies.director;
     })
     showCards(moviesByDirector);
