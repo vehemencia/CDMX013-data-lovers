@@ -1,4 +1,4 @@
-import { peliculasDosmiles, peliculasNoventas, peliculasOchentas, orderByLetterA, orderByLetterZ } from './data.js';
+import { recentMovies, moviesFromNineties, moviesFromEighties, orderByLetterA, orderByLetterZ, filterByDirector } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
@@ -28,19 +28,19 @@ let yearSelection = document.getElementById("movieyears");
 yearSelection.addEventListener("change", function () {
     if (yearSelection.value == "80s") {
         cleanCards();
-        return showCards(peliculasOchentas);
+        return showCards(filterByreleaseDate(yearSelection.value));
     }
     if (yearSelection.value == "90s") {
         cleanCards();
-        return showCards(peliculasNoventas);
+        return showCards(moviesFromNineties);
     }
     if (yearSelection.value == "00s") {
         cleanCards();
-        return showCards(peliculasDosmiles);
+        return showCards(recentMovies);
     }
 });
 
-let filmByDirector = document.getElementById("filmdirector");
+/*let filmByDirector = document.getElementById("filmdirector");
 filmByDirector.addEventListener("change", function () {
     cleanCards();
     const moviesByDirector = obtainingFilms.filter(function filterDirector(movies) {
@@ -48,20 +48,45 @@ filmByDirector.addEventListener("change", function () {
             return movies.director;
     })
     showCards(moviesByDirector);
-})
+})*/
 
-let dropDownMenu = document.getElementById("sortingMenu");
-dropDownMenu.addEventListener("change", function () {
-    if (dropDownMenu.value === "AZ") {
+
+let filmByDirector = document.getElementById("filmdirector");
+filmByDirector.addEventListener("change", function () {
+    if (filmByDirector.value == "Hayao") {
         cleanCards();
-        let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
-        console.log(obtainingFilms);
-        return showCards(filmsFromAtoZ);
+        return showCards(filterByDirector("Hayao Miyazaki"));
     }
-    if (dropDownMenu.value === "ZA") {
+    if (filmByDirector.value == "Isao") {
         cleanCards();
-        let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
-        console.log(obtainingFilms)
-        return showCards(filmsFromZtoA);
+        return showCards(filterByDirector("Isao Takahata"));
+    }
+    if (filmByDirector.value == "Yoshifumi") {
+        cleanCards()
+        return showCards(filterByDirector("Yoshifumi Kondō"))
+    }
+    if (filmByDirector.value == "Goro") {
+        cleanCards()
+        return showCards(filterByDirector("Gorō Miyazaki"));
+    }
+    if (filmByDirector.value == "Hiromasa") {
+        cleanCards()
+        return showCards(filterByDirector("Hiromasa Yonebayashi"));
     }
 });
+
+    let dropDownMenu = document.getElementById("sortingMenu");
+    dropDownMenu.addEventListener("change", function () {
+        if (dropDownMenu.value === "AZ") {
+            cleanCards();
+            let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
+            console.log(obtainingFilms);
+            return showCards(filmsFromAtoZ);
+        }
+        if (dropDownMenu.value === "ZA") {
+            cleanCards();
+            let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
+            console.log(obtainingFilms)
+            return showCards(filmsFromZtoA);
+        }
+    });
