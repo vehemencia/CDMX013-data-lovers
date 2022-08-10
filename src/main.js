@@ -1,4 +1,4 @@
-// import { example, anotherExample } from './data.js';
+import { peliculasDosmiles, peliculasNoventas, peliculasOchentas, orderByLetterA, orderByLetterZ } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
@@ -24,26 +24,20 @@ let prueba = showCards(obtainingFilms);
 
 const cleanCards = () => document.getElementById("root").innerHTML = "";
 
-function orderByLetterA(a, b) {
-    if (a.title < b.title) {
-        return -1;
-    }
-}
-
-function orderByLetterZ(a, b) {
-    if (a.title > b.title) {
-        return -1;
-    }
-}
-
 let yearSelection = document.getElementById("movieyears");
 yearSelection.addEventListener("change", function () {
-    cleanCards();
-    const moviesByYear = obtainingFilms.filter(function filterMovies(movies) {
-        if (movies.release_date <= "1989" && yearSelection.value == "80s" || movies.release_date >= "1990" && movies.release_date <= "1999" && yearSelection.value == "90s" || movies.release_date >= "2000" && yearSelection.value == "00s")
-            return movies.release_date;
-    })
-    showCards(moviesByYear);
+    if (yearSelection.value == "80s") {
+        cleanCards();
+        return showCards(peliculasOchentas);
+    }
+    if (yearSelection.value == "90s") {
+        cleanCards();
+        return showCards(peliculasNoventas);
+    }
+    if (yearSelection.value == "00s") {
+        cleanCards();
+        return showCards(peliculasDosmiles);
+    }
 });
 
 let filmByDirector = document.getElementById("filmdirector");

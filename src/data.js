@@ -1,4 +1,5 @@
 import ghibli from './data/ghibli/ghibli.js';
+//import {obtainingFilms} from './main.js'
 // estas funciones son de ejemplo
 // export const example = () => {
 //   return 'example';
@@ -7,31 +8,20 @@ import ghibli from './data/ghibli/ghibli.js';
 // export const anotherExample = () => {
 //   return 'OMG';
 // };
+let obtainingFilms2 = ghibli.films;
 
-function orderByLetterA(a, b) {
-  if (a.title < b.title) {
-      return -1;
-  }
+export const peliculasOchentas = obtainingFilms2.filter(a => a.release_date <= "1989");
+export const peliculasNoventas = obtainingFilms2.filter(a => a.release_date <= "1999" && a.release_date >= "1990");
+export const peliculasDosmiles = obtainingFilms2.filter(a => a.release_date >= "2000");
+
+
+export function orderByLetterA(a, b) {
+    if (a.title < b.title) {
+        return -1;
+    }
 }
-
-function orderByLetterZ(a, b) {
-  if (a.title > b.title) {
-      return -1;
-  }
+export function orderByLetterZ(a, b) {
+    if (a.title > b.title) {
+        return -1;
+    }
 }
-
-const movieData = ghibli.films;
-
-export function sortDataA(data, orderBy) {
-  return data.sort(orderByLetterA);
-}
-
-export function sortDataZ(data, orderBy) {
-  return data.sort(orderByLetterZ);
-}
-
-// let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
-// console.log(obtainingFilms);
-
-// let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
-//         console.log(obtainingFilms)
