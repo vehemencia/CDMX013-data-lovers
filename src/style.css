@@ -27,7 +27,6 @@ header {
 body {
   background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
   background-repeat: no-repeat;
-  background-position: 3px;
   background-color: #c2f4f8;
 }
 
@@ -94,4 +93,26 @@ h1 {
   font-weight: 700;
   margin-top: 10px;
   display: none;
+}
+
+#resetfilters {
+  background-color: #802620;
+  color: #FFFFFF;
+  border-radius: 20px;
+  border: none;
+}
+
+.filters {
+  background-color: #DDBC94;
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+}
+#resetfilters {
+  width: 250px;
+  height: 30px;
+  border-radius: 20px;
+  color: #ffffff;
 }
