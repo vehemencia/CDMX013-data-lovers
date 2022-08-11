@@ -1,46 +1,38 @@
 import ghibli from './data/ghibli/ghibli.js';
 
-// estas funciones son de ejemplo
+const obtainingFilms2 = ghibli.films;
 
-// export const example = () => {
-//   return 'example';
-// };
-
-// export const anotherExample = () => {
-//   return 'OMG';
-// };
-let obtainingFilms2 = ghibli.films;
-
-export const moviesFromEighties = obtainingFilms2.filter(a => a.release_date <= "1989");
-export const moviesFromNineties = obtainingFilms2.filter(a => a.release_date <= "1999" && a.release_date >= "1990");
-export const recentMovies = obtainingFilms2.filter(a => a.release_date >= "2000");
-
-export function filterByreleaseDate(year) {
+export function filterByReleaseDate(year) {
     if (year == "80s") {
-        return obtainingFilms2.filter(a => a.release_date <= "1989")
-    }
-    if (yearSelection.value == "90s") {
-        cleanCards();
-        return showCards(moviesFromNineties);
-    }
-    if (yearSelection.value == "00s") {
-        cleanCards();
-        return showCards(recentMovies);
+        return obtainingFilms2.filter(a => a.release_date <= "1989");
+    } else if (year == "90s") {
+        return obtainingFilms2.filter(a => a.release_date <= "1999" && a.release_date >= "1990");
+    } else if (year == "00s") {
+        return obtainingFilms2.filter(a => a.release_date >= "2000");
     }
 }
 
+export function filterByDirector(director) {
+    return obtainingFilms2.filter(a => a.director == director);
+}
 
-export function orderByLetterA(a, b) {
+function orderByLetterA(a, b) {
     if (a.title < b.title) {
         return -1;
     }
 }
-
-export function orderByLetterZ(a, b) {
+function orderByLetterZ(a, b) {
     if (a.title > b.title) {
         return -1;
     }
 }
-export function filterByDirector(director) {
-    return obtainingFilms2.filter(a => a.director == director)
+
+export function sortingFilms(order){
+    if (order == "AZ") {
+        return obtainingFilms2.sort(orderByLetterA);
+    } else if (order == "ZA") {
+        return obtainingFilms2.sort(orderByLetterZ);
+    } else {
+        return obtainingFilms2;
+    }
 }
