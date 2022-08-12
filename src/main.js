@@ -1,8 +1,10 @@
-import { recentMovies, moviesFromNineties, moviesFromEighties, orderByLetterA, orderByLetterZ, filterByDirector } from './data.js';
+import { orderBy, filterByDirector, filterByreleaseDate} from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
-const obtainingFilms = ghibli.films;
+export const obtainingFilms = ghibli.films;
+//export const moviesGhibli = ghibli.films
+
 
 // Aquí con .map() logramos llamar cada elemento (la -propiedad-) dentro del arreglo
 function showCards(films) {
@@ -20,73 +22,40 @@ function showCards(films) {
             `
     });
 }
+
 let prueba = showCards(obtainingFilms);
 
 const cleanCards = () => document.getElementById("root").innerHTML = "";
 
 let yearSelection = document.getElementById("movieyears");
 yearSelection.addEventListener("change", function () {
-    if (yearSelection.value == "80s") {
-        cleanCards();
-        return showCards(filterByreleaseDate(yearSelection.value));
-    }
-    if (yearSelection.value == "90s") {
-        cleanCards();
-        return showCards(moviesFromNineties);
-    }
-    if (yearSelection.value == "00s") {
-        cleanCards();
-        return showCards(recentMovies);
-    }
-});
-
-/*let filmByDirector = document.getElementById("filmdirector");
-filmByDirector.addEventListener("change", function () {
     cleanCards();
-    const moviesByDirector = obtainingFilms.filter(function filterDirector(movies) {
-        if (movies.director == "Hayao Miyazaki" && filmByDirector.value == "Hayao" || movies.director == "Isao Takahata" && filmByDirector.value == "Isao" || movies.director == "Yoshifumi Kondō" && filmByDirector.value == "Yoshifumi" || movies.director == "Gorō Miyazaki" && filmByDirector.value == "Goro" || movies.director == "Hiromasa Yonebayashi" && filmByDirector.value == "Hiromasa")
-            return movies.director;
-    })
-    showCards(moviesByDirector);
-})*/
-
-
-let filmByDirector = document.getElementById("filmdirector");
-filmByDirector.addEventListener("change", function () {
-    if (filmByDirector.value == "Hayao") {
-        cleanCards();
-        return showCards(filterByDirector("Hayao Miyazaki"));
-    }
-    if (filmByDirector.value == "Isao") {
-        cleanCards();
-        return showCards(filterByDirector("Isao Takahata"));
-    }
-    if (filmByDirector.value == "Yoshifumi") {
-        cleanCards()
-        return showCards(filterByDirector("Yoshifumi Kondō"))
-    }
-    if (filmByDirector.value == "Goro") {
-        cleanCards()
-        return showCards(filterByDirector("Gorō Miyazaki"));
-    }
-    if (filmByDirector.value == "Hiromasa") {
-        cleanCards()
-        return showCards(filterByDirector("Hiromasa Yonebayashi"));
-    }
+    //Reasignando el arreglo inicial para que contenga los datos fitrados.
+    let filterDataYear = filterByreleaseDate(yearSelection.value)
+    return showCards(filterDataYear);
 });
 
-    let dropDownMenu = document.getElementById("sortingMenu");
-    dropDownMenu.addEventListener("change", function () {
-        if (dropDownMenu.value === "AZ") {
-            cleanCards();
-            let filmsFromAtoZ = obtainingFilms.sort(orderByLetterA);
-            console.log(obtainingFilms);
-            return showCards(filmsFromAtoZ);
-        }
-        if (dropDownMenu.value === "ZA") {
-            cleanCards();
-            let filmsFromZtoA = obtainingFilms.sort(orderByLetterZ);
-            console.log(obtainingFilms)
-            return showCards(filmsFromZtoA);
-        }
-    });
+
+let directionSelection = document.getElementById("filmdirector");
+directionSelection.addEventListener("change", function () {
+    cleanCards();
+    //Reasignando el arreglo inicial para que contenga los datos fitrados.
+    //obtainingFilms = filterByDirector(directionSelection.value)
+    let filterDataDirector = filterByDirector(directionSelection.value)
+    return showCards(filterDataDirector);
+});
+
+
+let dropDownMenu = document.getElementById("sortingMenu");
+dropDownMenu.addEventListener("change", function () {
+cleanCards();
+return showCards(orderBy(dropDownMenu.value))
+});
+
+let resetButton =document.getElementById("resetfilters");
+resetButton.addEventListener("click", () => {
+    cleanCards();
+    yearSelection.selectedIndex = 0; // .selectedIndex corresponde al valor que se le otorga a un <option>
+    directorSelection.selectedIndex = 0;
+    showCards(obtainingFilms)
+});
