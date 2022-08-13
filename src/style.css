@@ -1,20 +1,20 @@
 * {
     margin: 0px;
-}
-
-header {
+  }
+  
+  header {
     background-color: #f5a661;
     text-align: left;
     display: flex;
-}
-
-#ghilogo {
+  }
+  
+  #ghilogo {
     height: 150px;
     width: auto;
     margin-left: 40px;
-}
-
-#searchbox {
+  }
+  
+  #searchbox {
     background-color: #fae6ce;
     border: none;
     border-radius: 20px;
@@ -22,24 +22,24 @@ header {
     height: 40px;
     width: 250px;
     display: none;
-}
-
-body {
+  }
+  
+  body {
     background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
     background-repeat: no-repeat;
     background-color: #c2f4f8;
-}
-
-#sortBy {
+  }
+  
+  #sortBy {
     background-color: #f5705a;
     height: 50px;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     padding-right: 60px;
-}
-
-#sortingMenu {
+  }
+  
+  #sortingMenu {
     background-color: #DDBC94;
     height: 25px;
     width: 225px;
@@ -48,16 +48,16 @@ body {
     border-radius: 20px;
     font-size: medium;
     color: #ffffff;
-}
-
-#root {
+  }
+  
+  #root {
     padding-left: 380px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around
-}
-
-.card {
+  }
+  
+  .card {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,9 +68,9 @@ body {
     width: 300px;
     font-family: 'Roboto Flex', sans-serif;
     padding-bottom: 20px;
-}
-
-h1 {
+  }
+  
+  h1 {
     padding: 0 20px;
     font-size: 20px;
     height: 50px;
@@ -78,14 +78,14 @@ h1 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-}
-
-.cardPoster {
+  }
+  
+  .cardPoster {
     height: 300px;
     width: auto;
-}
-
-.moreInfoButton {
+  }
+  
+  .moreInfoButton {
     border-radius: 20px;
     border: none;
     background-color: #DFF681;
@@ -93,26 +93,22 @@ h1 {
     font-weight: 700;
     margin-top: 10px;
     display: none;
-}
-
-#resetfilters {
+  }
+  
+  #resetfilters {
     background-color: #802620;
-    color: #FFFFFF;
-    border-radius: 20px;
+    color: #ffffff;
     border: none;
-}
-
-.filters {
+    border-radius: 20px;
+    width: 250px;
+    height: 30px;
+  }
+  
+  .filters {
     background-color: #DDBC94;
     width: 250px;
     height: 30px;
     border-radius: 20px;
     border: none;
     text-align: center;
-}
-#resetfilters {
-    width: 250px;
-    height: 30px;
-    border-radius: 20px;
-    color: #ffffff;
-}
+  }
