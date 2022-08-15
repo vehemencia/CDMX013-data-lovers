@@ -5,7 +5,6 @@ import ghibli from './data/ghibli/ghibli.js';
 export const obtainingFilms = ghibli.films;
 //export const moviesGhibli = ghibli.films
 
-
 // Aquí con .map() logramos llamar cada elemento (la -propiedad-) dentro del arreglo
 function showCards(films) {
     return films.map(obj => {
@@ -27,69 +26,26 @@ let prueba = showCards(obtainingFilms);
 
 const cleanCards = () => document.getElementById("root").innerHTML = "";
 
-//Filtros por año
-let yearSelection = document.getElementById("movieyears");
-yearSelection.addEventListener("change", function(){
-    cleanCards();
-    showCards(globalFilter(yearSelection.value,directionSelection.value));
-});
-
-/* yearSelection.addEventListener("change", function(){
-    cleanCards();
-    let filterDataYear = filterByreleaseDate(yearSelection.value)
-    console.log(filterDataYear)
-    let filterDataDirector = filterByDirector(directionSelection.value, filterDataYear)
-    console.log(filterDataDirector)
-    showCards(filterDataDirector)
-}); */
-
-    //Reasignando el arreglo inicial para que contenga los datos fitrados.
-/*     let filterDataYear = filterByreleaseDate(yearSelection.value)
-    let selectedDirector = document.getElementById("filmdirector").value;
-    console.log(selectedDirector)
-    if(selectedDirector != "moviedirector"){
-        filterDataYear = filterByDirector(selectedDirector)
-    }
-    return showCards(filterDataYear); */
-
-
-
-//Filtros por director
-let directionSelection = document.getElementById("filmdirector");
-directionSelection.addEventListener("change", function(){
-    cleanCards();
-    showCards(globalFilter(yearSelection.value,directionSelection.value))
-});
-    //Reasignando el arreglo inicial para que contenga los datos fitrados.
-    //obtainingFilms = filterByDirector(directionSelection.value)
-/*     let filterDataDirector = filterByDirector(directionSelection.value)
-    return showCards(filterDataDirector); */
-
-
-
-/* yearSelection.onchange = function() {
-    alert(this.value);
-} */
-
-/* if(yearSelection.onchange){
-    console.log("seleccionaste ambos")
-}
-
-function opionsFilters(event, changes){
-    if(event.onchange ==)
-}
- */
-
-/* function filterMovies(){
-    cleanCards();
-    showCards(globalFilter(yearSelection.value,directionSelection.value));
-} */
 
 //Ordenamiento AZ, ZA
 let dropDownMenu = document.getElementById("sortingMenu");
 dropDownMenu.addEventListener("change", function () {
 cleanCards();
-return showCards(orderBy(dropDownMenu.value))
+return showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
+});
+
+//Filtros por año
+let yearSelection = document.getElementById("movieyears");
+yearSelection.addEventListener("change", function(){
+    cleanCards();
+    showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
+});
+
+//Filtros por director
+let directionSelection = document.getElementById("filmdirector");
+directionSelection.addEventListener("change", function(){
+    cleanCards();
+    showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
 });
 
 
@@ -101,3 +57,70 @@ resetButton.addEventListener("click", () => {
     directionSelection.selectedIndex = 0;
     showCards(obtainingFilms)
 });
+
+console.log(obtainingFilms)
+
+let arrayFemale = [];
+let arrayMale = [];
+let arrayOtros = [];
+let arrayScoreMovies= [];
+
+let accessPeople = obtainingFilms.map(x => {
+    x.people.map(y=>{
+        if(y.gender == "Female"){
+            arrayFemale.push(y.gender)
+        } else if(y.gender == "Male"){
+            arrayMale.push(y.gender)
+        }else{
+            arrayOtros.push(y.gender)
+        }
+    })
+    let scoreNumbers = (Number(x.rt_score))
+    arrayScoreMovies.push(scoreNumbers); 
+    
+    })
+
+console.log(accessPeople);
+console.log("Número de mujeres: " + arrayFemale.length);
+console.log("Número de hombres: " + arrayMale.length);
+console.log("Otros géneros: " + arrayOtros.length)
+console.log(arrayScoreMovies)
+console.log(arrayScoreMovies.length)
+
+//let x = sum.reduce((a,b) => a+b)
+//console.log(x);
+
+let sum = arrayScoreMovies.reduce((a,b) => (a + b))
+let averageScore = sum/arrayScoreMovies.length
+let minScore = arrayScoreMovies.reduce((a,b) => Math.min(a, b))
+let máxScore = arrayScoreMovies.reduce((a,b) => Math.max(a, b))
+console.log("El score promedio de las películas es de " + averageScore)
+console.log("La puntuacion mínima es " + minScore)
+console.log("La puntuacion máxima es " + máxScore)
+
+
+/* let accessPeople = obtainingFilms.map(x => {
+    x.people.map(y => {
+        y.gender
+        if(y.gender == "Female"){
+        for(let i=0; i<= x.people.length; i++){
+            console.log(i)
+        }
+    }
+    })
+})
+console.log(obtainingFilms) */
+
+/* let accesP = obtainingFilms.map(function(x){
+    return x.people
+    
+})
+console.log(accesP) */
+
+/* 
+function getGender(x){
+    if(x.gender == "Female"){
+        return ":)"
+    }
+}
+ */

@@ -4,6 +4,7 @@ import {obtainingFilms} from './main.js';
 //let obtainingFilms2 = ghibli.films;
 
 
+
 export function filterByreleaseDate(year) {
   if (year == "80s") {
     let ochentasFiltroUno =  obtainingFilms.filter(a => a.release_date <= "1989")
@@ -27,7 +28,7 @@ export function filterByreleaseDate(year) {
   return arrayDirector2;
 } */
 
-
+//Función para los dos filtros
 export function globalFilter(year,director, order){
   //se obtiene el arreglo de movies, se asigna a filteredMovies. 
   //En caso de que ningun filtro aplique, se retornan todas las películas.
@@ -42,27 +43,52 @@ export function globalFilter(year,director, order){
     }else if (year == "00s") {
       filteredMovies = obtainingFilms.filter(a => a.release_date >= "2000")
     }
+    console.log(filteredMovies)
   }
   //moviedirector = no hay filtro
   if(director != "moviedirector"){
      filteredMovies = filteredMovies.filter(a => a.director == director)
+     console.log(filteredMovies)
   }
   //se retorna las películas filtradas por año y director.
+
+  if(order != "notSorted"){
+    if(order == "AZ"){
+      filteredMovies= filteredMovies.sort(orderByLetterA)
+    }else if(order == "ZA"){
+      filteredMovies= filteredMovies.sort(orderByLetterZ)
+    }
+    else if (order == "minus") {
+      filteredMovies = filteredMovies.sort(orderByScoreMinus)
+  } else if (order == "plus") {
+      filteredMovies = filteredMovies.sort(orderByScorePlus);
+  }
+  }
+  console.log(filteredMovies)
   return filteredMovies;
 }
 
 //Funciones de ordenamiento
-export function orderByLetterA(a, b) {
+function orderByLetterA(a, b) {
   if (a.title < b.title) {
     return -1;
   }
 }
 
 
-export function orderByLetterZ(a, b) {
+function orderByLetterZ(a, b) {
   if (a.title > b.title) {
     return -1;
   }
+}
+
+//Funciones de ordenamiento por puntuacion
+function orderByScoreMinus(a, b){
+  return a.rt_score - b.rt_score;
+} 
+
+function orderByScorePlus(a, b){
+  return b.rt_score - a.rt_score;
 }
 
 export function orderBy(orderMethod){
@@ -72,6 +98,7 @@ if(orderMethod == "AZ"){
   return obtainingFilms.sort(orderByLetterZ)
 }
 }
+
 
 
 
