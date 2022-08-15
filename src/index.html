@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <title>Studio Ghibli Collection</title>
@@ -11,7 +10,6 @@
     href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,700&display=swap"
     rel="stylesheet">
 </head>
-
 <body>
   <header>
     <img src="https://i.postimg.cc/DydYXxdd/glogo.png" id="ghilogo">
@@ -26,28 +24,29 @@
       <option id="rTplus" value="plus">De mayor a menor puntuación</option>
     </select>
   </div>
-  <div id="filterButtons">
-    <p>Filtros</p>
-    <p><select id="movieyears" class="filters">
-        <option id="year" value="releaseyear">Año de lanzamiento</option>
-        <option id="80" value="80s">1980 a 1989</option>
-        <option id="90" value="90s">1990 a 1999</option>
-        <option id="20" value="00s">2000 a 2009</option>
-        <option id="21" value="10s">2010 a la actualidad</option>
-      </select></p>
-    <p><select id="filmdirector" class="filters">
-        <option id="year" value="moviedirector">Director</option>
-        <option id="Hayao" value="Hayao Miyazaki">Hayao Miyazaki</option>
-        <option id="Isao" value="Isao Takahata">Isao Takahata</option>
-        <option id="Yoshifumi" value="Yoshifumi Kondō">Yoshifumi Kondō</option>
-        <option id="Goro" value="Gorō Miyazaki">Gorō Miyazaki</option>
-        <option id="Hiromasa" value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
-      </select></p>
+  <div id="completeRoot">
+    <div id="filtersRoot">
+      <p>Filtros</p>
+      <p><select id="movieyears" class="filters">
+          <option id="year" value="releaseyear">Año de lanzamiento</option>
+          <option id="80" value="80s">1980 a 1989</option>
+          <option id="90" value="90s">1990 a 1999</option>
+          <option id="20" value="00s">2000 a 2009</option>
+          <option id="21" value="10s">2010 a la actualidad</option>
+        </select></p>
+      <p><select id="filmdirector" class="filters">
+          <option id="year" value="moviedirector">Director</option>
+          <option id="Hayao" value="Hayao Miyazaki">Hayao Miyazaki</option>
+          <option id="Isao" value="Isao Takahata">Isao Takahata</option>
+          <option id="Yoshifumi" value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+          <option id="Goro" value="Gorō Miyazaki">Gorō Miyazaki</option>
+          <option id="Hiromasa" value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+        </select></p>
       <button type="button" id="resetfilters">Limpiar filtros</button>
-      <div id="root"></div>
     </div>
+    <div id="root"></div>
+  </div>
   <script src="main.js" type="module"></script>
   <footer></footer>
 </body>
-
 </html>

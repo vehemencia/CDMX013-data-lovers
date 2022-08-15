@@ -1,5 +1,5 @@
 import ghibli from './data/ghibli/ghibli.js';
-import { allGhibliFilms } from './main.js';
+import { allGhibliFilms, messageInDOM } from './main.js';
 
 //Función para los dos filtros y ordenamientos.
 export function globalFilter(year, director, order) {
@@ -16,7 +16,8 @@ export function globalFilter(year, director, order) {
             filteredMovies = allGhibliFilms.filter(a => a.release_date >= "2000" && a.release_date <= "2009");
         } else if (year == "10s") {
             filteredMovies = allGhibliFilms.filter(a => a.release_date >= "2010");
-        } console.log(filteredMovies)
+        }
+        console.log(filteredMovies)
     }
     // Si es "moviedirector", significa que no hay filtro.
     if (director != "moviedirector") {
@@ -37,10 +38,13 @@ export function globalFilter(year, director, order) {
     }
     console.log(filteredMovies);
     // Aquí retorna las películas filtradas por año y director. Igual si se le aplicó sort.
+    if (filteredMovies.length === 0) {
+        return messageInDOM();
+    }
     return filteredMovies;
 }
 
-// 
+// Funciones de ordenamiento alfabético.
 function orderByLetterA(a, b) {
     if (a.title < b.title) {
         return -1;
@@ -73,6 +77,7 @@ let arrayScoreMovies = [];
 let accessPeople = filmCalculations.map(x => {
     x.people.map(y => {
         if (y.gender == "Female") {
+            console.log(y.gender.length);
             arrayFemale.push(y.gender);
         } else if (y.gender == "Male") {
             arrayMale.push(y.gender);

@@ -50,11 +50,21 @@
     color: #ffffff;
   }
   
+  #completeRoot {
+    display: flex;
+  }
+
+  #filtersRoot {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+
   #root {
-    padding-left: 380px;
+    /* padding-left: 380px; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around
+    justify-content: center;
   }
   
   .card {
