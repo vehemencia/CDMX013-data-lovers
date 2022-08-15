@@ -1,4 +1,4 @@
-import { orderBy, filterByDirector, filterByReleaseYear } from './data.js';
+import { globalFilter } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
@@ -23,43 +23,36 @@ function showCards(filmsToShow) {
 
 let firstCards = showCards(allGhibliFilms);
 
-const wipeCards = () => document.getElementById("root").innerHTML = "";
+const cleanCards = () => document.getElementById("root").innerHTML = "";
 
 let releaseYearMenu = document.getElementById("movieyears");
 let directorMenu = document.getElementById("filmdirector");
 
-function applyBothFilters(){
-    if (releaseYearMenu.value == "80s" && directorMenu.value == "Hayao Miyazaki"){
-        return console.log("ay");
-    } else if (releaseYearMenu.value != "80s" && directorMenu.value == "Hayao Miyazaki") {
-        return console.log("mi piernita :(");
-    } else {
-        return console.log("ya basta de estupideces");
-    }
-}
-
+// Filtros por año.
 releaseYearMenu.addEventListener("change", function () {
-    wipeCards();  //Reasignando el arreglo inicial para que contenga los datos fitrados.
-    let filterDataYear = filterByReleaseYear(releaseYearMenu.value)
-    return applyBothFilters(showCards(filterDataYear));
+    cleanCards();
+    return showCards(globalFilter(releaseYearMenu.value,directorMenu.value, sortByMenu.value));
 });
 
+// Filtros por director.
 directorMenu.addEventListener("change", function () {
-    wipeCards();
-    let filterDataDirector = filterByDirector(directorMenu.value)
-    return applyBothFilters(showCards(filterDataDirector));
+    cleanCards();
+    return showCards(globalFilter(releaseYearMenu.value,directorMenu.value, sortByMenu.value));
 });
 
+// Ordenamiento.
 let sortByMenu = document.getElementById("sortingMenu");
 sortByMenu.addEventListener("change", function () {
-    wipeCards();
-    return showCards(orderBy(sortByMenu.value))
+    cleanCards();
+    return showCards(globalFilter(releaseYearMenu.value,directorMenu.value, sortByMenu.value));
 });
 
 let resetButton = document.getElementById("resetfilters");
 resetButton.addEventListener("click", () => {
-    wipeCards();
+    cleanCards();
     releaseYearMenu.selectedIndex = 0; // .selectedIndex corresponde al valor que se le otorga a un <option>
     directorMenu.selectedIndex = 0;
     showCards(allGhibliFilms)
 });
+
+
