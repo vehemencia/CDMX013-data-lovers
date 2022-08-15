@@ -1,10 +1,6 @@
 import ghibli from './data/ghibli/ghibli.js';
 import {obtainingFilms} from './main.js';
 
-//let obtainingFilms2 = ghibli.films;
-
-
-
 export function filterByreleaseDate(year) {
   if (year == "80s") {
     let ochentasFiltroUno =  obtainingFilms.filter(a => a.release_date <= "1989")
@@ -18,17 +14,7 @@ export function filterByreleaseDate(year) {
   }
 }
 
-
-
-/* export function filterByDirector(director, arrayDirector2) {
-  console.log(director)
-  if(director != "moviedirector"){
-    return arrayDirector2.filter(a => a.director == director)
-  }
-  return arrayDirector2;
-} */
-
-//Función para los dos filtros
+//Función para los dos filtros y ordenamientos.
 export function globalFilter(year,director, order){
   //se obtiene el arreglo de movies, se asigna a filteredMovies. 
   //En caso de que ningun filtro aplique, se retornan todas las películas.
@@ -52,6 +38,7 @@ export function globalFilter(year,director, order){
   }
   //se retorna las películas filtradas por año y director.
 
+  //Se ordenan los datos filtrados
   if(order != "notSorted"){
     if(order == "AZ"){
       filteredMovies= filteredMovies.sort(orderByLetterA)
@@ -98,6 +85,45 @@ if(orderMethod == "AZ"){
   return obtainingFilms.sort(orderByLetterZ)
 }
 }
+
+//Calculos agregados
+
+let filmsForOperations = ghibli.films
+let arrayFemale = [];
+let arrayMale = [];
+let arrayOtros = [];
+let arrayScoreMovies= [];
+
+let accessPeople = filmsForOperations.map(x => {
+    x.people.map(y=>{
+        if(y.gender == "Female"){
+            arrayFemale.push(y.gender)
+        } else if(y.gender == "Male"){
+            arrayMale.push(y.gender)
+        }else{
+            arrayOtros.push(y.gender)
+        }
+    })
+    let scoreNumbers = (Number(x.rt_score))
+    arrayScoreMovies.push(scoreNumbers); 
+    
+    })
+
+console.log("Número de mujeres: " + arrayFemale.length);
+console.log("Número de hombres: " + arrayMale.length);
+console.log("Otros géneros: " + arrayOtros.length)
+
+
+let sum = arrayScoreMovies.reduce((a,b) => (a + b))
+let averageScore = sum/arrayScoreMovies.length
+let minScore = arrayScoreMovies.reduce((a,b) => Math.min(a, b))
+let máxScore = arrayScoreMovies.reduce((a,b) => Math.max(a, b))
+console.log("La puntuación promedio de las películas es de " + averageScore)
+console.log("La puntuacion mínima es " + minScore)
+console.log("La puntuacion máxima es " + máxScore)
+
+
+
 
 
 
