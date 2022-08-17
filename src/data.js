@@ -40,8 +40,9 @@ export function globalFilter(year, director, order) {
     // Aquí retorna las películas filtradas por año y director. Igual si se le aplicó sort.
     if (filteredMovies.length === 0) {
         return messageInDOM();
-    }
+    } //else {
     return filteredMovies;
+    // }
 }
 
 // Funciones de ordenamiento alfabético.
@@ -77,7 +78,6 @@ let arrayScoreMovies = [];
 let accessPeople = filmCalculations.map(x => {
     x.people.map(y => {
         if (y.gender == "Female") {
-            console.log(y.gender.length);
             arrayFemale.push(y.gender);
         } else if (y.gender == "Male") {
             arrayMale.push(y.gender);
