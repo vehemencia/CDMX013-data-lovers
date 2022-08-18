@@ -1,60 +1,69 @@
-import { orderBy, globalFilter} from './data.js';
+import { globalFilter } from './data.js';
 import ghibli from './data/ghibli/ghibli.js';
 
 // Obteniendo el arreglo con 20 elementos
-export const obtainingFilms = ghibli.films;
-//export const moviesGhibli = ghibli.films
+const allGhibliFilms = ghibli.films;
+
+let rootInDOM = document.getElementById("root");
 
 // Aquí con .map() logramos llamar cada elemento (la -propiedad-) dentro del arreglo
-function showCards(films) {
-    return films.map(obj => {
-        document.getElementById("root").innerHTML +=
+export function showCards(filmsToShow) {
+    if(filmsToShow.length != 0){
+    return filmsToShow.map(obj => {
+        rootInDOM.innerHTML +=
             `
             <div class="card">
             <h1>${obj.title}</h1>
+            <p>(${obj.release_date})</p>
             <img class="cardPoster" src="${obj.poster}"/>
-            <p>Año: ${obj.release_date}</p>
             <p>Director: ${obj.director}</p>
             <p>Puntuación: ${obj.rt_score}</p>
             <button class="moreInfoButton">Conoce más</button>
             </div>
             `
-    });
+    })
+}
+    rootInDOM.innerHTML = `<h1>No hay ninguna película que corresponda con la selección de tus filtros, límpialos e intenta de nuevo. 🌺</h1>`;
 }
 
-let prueba = showCards(obtainingFilms);
+showCards(allGhibliFilms);
 
-const cleanCards = () => document.getElementById("root").innerHTML = "";
+const cleanCards = () => rootInDOM.innerHTML = "";
 
+let releaseYearMenu = document.getElementById("movieyears");
+let directorMenu = document.getElementById("filmdirector");
 
-//Ordenamiento AZ, ZA
-let dropDownMenu = document.getElementById("sortingMenu");
-dropDownMenu.addEventListener("change", function () {
-cleanCards();
-return showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
-});
-
-//Filtros por año
-let yearSelection = document.getElementById("movieyears");
-yearSelection.addEventListener("change", function(){
+// Filtros por año.
+if(releaseYearMenu){
+releaseYearMenu.addEventListener("change", function () {
     cleanCards();
-    showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
+    return showCards(globalFilter(releaseYearMenu.value, directorMenu.value, sortByMenu.value, allGhibliFilms));
 });
+}
 
-//Filtros por director
-let directionSelection = document.getElementById("filmdirector");
-directionSelection.addEventListener("change", function(){
+// Filtros por director.
+if(directorMenu){
+directorMenu.addEventListener("change", function () {
     cleanCards();
-    showCards(globalFilter(yearSelection.value,directionSelection.value, dropDownMenu.value))
+    return showCards(globalFilter(releaseYearMenu.value, directorMenu.value, sortByMenu.value, allGhibliFilms));
 });
+}
 
+// Ordenamiento.
+let sortByMenu = document.getElementById("sortingMenu");
+if(sortByMenu){
+sortByMenu.addEventListener("change", function () {
+    cleanCards();
+    return showCards(globalFilter(releaseYearMenu.value, directorMenu.value, sortByMenu.value, allGhibliFilms));
+});
+}
 
-
-let resetButton =document.getElementById("resetfilters");
+let resetButton = document.getElementById("resetfilters");
+if(resetButton){
 resetButton.addEventListener("click", () => {
     cleanCards();
-    yearSelection.selectedIndex = 0; // .selectedIndex corresponde al valor que se le otorga a un <option>
-    directionSelection.selectedIndex = 0;
-    showCards(obtainingFilms)
+    releaseYearMenu.selectedIndex = 0; // .selectedIndex corresponde al valor que se le otorga a un <option>
+    directorMenu.selectedIndex = 0;
+    showCards(allGhibliFilms)
 });
-
+}

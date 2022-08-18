@@ -28,6 +28,10 @@ body {
   background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
   background-repeat: no-repeat;
   background-color: #c2f4f8;
+  font-family: 'Roboto Flex', sans-serif;
+  background-position: -8px 350px;
+  background-size: 350px;
+  font-size: 17px;
 }
 
 #sortBy {
@@ -50,11 +54,25 @@ body {
   color: #ffffff;
 }
 
+#completeRoot {
+  display: flex;
+  padding-top: 20px;
+} 
+
+#filtersRoot {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  padding-left: 40px;
+}
+
 #root {
-  padding-left: 380px;
+  /* padding-left: 380px; */
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around
+  justify-content: center;
+  flex-grow: 2;
 }
 
 .card {
@@ -62,7 +80,7 @@ body {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  background-color: #B5735B;
+  background-color: #E9974F;
   border-radius: 20px;
   margin: 20px;
   width: 300px;
@@ -71,9 +89,8 @@ body {
 }
 
 h1 {
-  padding: 0 20px;
+  margin-top: 20px;
   font-size: 20px;
-  height: 50px;
   width: auto;
   display: flex;
   justify-content: center;
@@ -83,6 +100,8 @@ h1 {
 .cardPoster {
   height: 300px;
   width: auto;
+  margin-bottom: 15px;
+  margin-top: 10px;
 }
 
 .moreInfoButton {
@@ -97,22 +116,24 @@ h1 {
 
 #resetfilters {
   background-color: #802620;
-  color: #FFFFFF;
-  border-radius: 20px;
+  color: #ffffff;
   border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 17px;
+  margin: 20px;
 }
 
 .filters {
-  background-color: #DDBC94;
-  width: 250px;
-  height: 30px;
+  background-color: #ECDECC;
+  color: #000000;
+  width: 200px;
+  height: 40px;
   border-radius: 20px;
   border: none;
   text-align: center;
-}
-#resetfilters {
-  width: 250px;
-  height: 30px;
-  border-radius: 20px;
-  color: #ffffff;
+  font-size: 17px;
+  margin: 5px;
+  position: -webkit-sticky;
 }
