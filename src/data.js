@@ -1,21 +1,22 @@
 import ghibli from './data/ghibli/ghibli.js';
-import { allGhibliFilms, messageInDOM } from './main.js';
+export const arrayWithMovies = ghibli.films;
 
 //Función para los dos filtros y ordenamientos.
-export function globalFilter(year, director, order) {
-    // Se obtiene el arreglo desde movies, se asigna a filteredMovies. En caso de que ningun filtro aplique, se retornan todas las películas.
-    let filteredMovies = allGhibliFilms;
+export function globalFilter(year, director, order, array) {
+    // Se obtiene el arreglo desde array, se asigna a filteredMovies. En caso de que ningun filtro aplique, se retornan todas las películas.
+    let filteredMovies = array;
+    // console.log(filteredMovies)
     //releaseyear = opción inicial: no hay filtro aplicado en los filtros por año.
     if (year != "releaseyear") {
         // Si hay un filtro en año aplica, puesto que es distinto a "releaseyear":
         if (year == "80s") {
-            filteredMovies = allGhibliFilms.filter(a => a.release_date <= "1989");
+            filteredMovies = array.filter(a => a.release_date <= "1989");
         } else if (year == "90s") {
-            filteredMovies = allGhibliFilms.filter(a => a.release_date <= "1999" && a.release_date >= "1990");
+            filteredMovies = array.filter(a => a.release_date <= "1999" && a.release_date >= "1990");
         } else if (year == "00s") {
-            filteredMovies = allGhibliFilms.filter(a => a.release_date >= "2000" && a.release_date <= "2009");
+            filteredMovies = array.filter(a => a.release_date >= "2000" && a.release_date <= "2009");
         } else if (year == "10s") {
-            filteredMovies = allGhibliFilms.filter(a => a.release_date >= "2010");
+            filteredMovies = array.filter(a => a.release_date >= "2010");
         }
         console.log(filteredMovies)
     }
@@ -38,12 +39,9 @@ export function globalFilter(year, director, order) {
     }
     console.log(filteredMovies);
     // Aquí retorna las películas filtradas por año y director. Igual si se le aplicó sort.
-    if (filteredMovies.length === 0) {
-        return messageInDOM();
-    } //else {
-    return filteredMovies;
-    // }
+        return filteredMovies;
 }
+
 
 // Funciones de ordenamiento alfabético.
 function orderByLetterA(a, b) {
@@ -69,37 +67,37 @@ function orderByScorePlus(a, b) {
 
 // Cálculos agregados
 
-let filmCalculations = ghibli.films;
-let arrayFemale = [];
-let arrayMale = [];
-let arrayOtherGenders = [];
-let arrayScoreMovies = [];
+// let filmCalculations = ghibli.films;
+// let arrayFemale = [];
+// let arrayMale = [];
+// let arrayOtherGenders = [];
+// let arrayScoreMovies = [];
 
-let accessPeople = filmCalculations.map(x => {
-    x.people.map(y => {
-        if (y.gender == "Female") {
-            arrayFemale.push(y.gender);
-        } else if (y.gender == "Male") {
-            arrayMale.push(y.gender);
-        } else {
-            arrayOtherGenders.push(y.gender);
-        }
-    })
-    let scoreNumbers = (Number(x.rt_score))
-    arrayScoreMovies.push(scoreNumbers);
+// let accessPeople = filmCalculations.map(x => {
+//     x.people.map(y => {
+//         if (y.gender == "Female") {
+//             arrayFemale.push(y.gender);
+//         } else if (y.gender == "Male") {
+//             arrayMale.push(y.gender);
+//         } else {
+//             arrayOtherGenders.push(y.gender);
+//         }
+//     })
+//     let scoreNumbers = (Number(x.rt_score))
+//     arrayScoreMovies.push(scoreNumbers);
 
-})
+// })
 
-// console.log("Número de mujeres: " + arrayFemale.length);
-// console.log("Número de hombres: " + arrayMale.length);
-// console.log("Otros géneros: " + arrayOtherGenders.length)
+// // console.log("Número de mujeres: " + arrayFemale.length);
+// // console.log("Número de hombres: " + arrayMale.length);
+// // console.log("Otros géneros: " + arrayOtherGenders.length)
 
 
-let sum = arrayScoreMovies.reduce((a, b) => (a + b));
-let averageScore = sum / arrayScoreMovies.length;
-let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
-let máxScore = arrayScoreMovies.reduce((a, b) => Math.max(a, b));
+// let sum = arrayScoreMovies.reduce((a, b) => (a + b));
+// let averageScore = sum / arrayScoreMovies.length;
+// let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
+// let máxScore = arrayScoreMovies.reduce((a, b) => Math.max(a, b));
 
-console.log("La puntuación promedio de las películas es de " + averageScore)
-console.log("La puntuacion mínima es " + minScore)
-console.log("La puntuacion máxima es " + máxScore)
+// // console.log("La puntuación promedio de las películas es de " + averageScore)
+// // console.log("La puntuacion mínima es " + minScore)
+// // console.log("La puntuacion máxima es " + máxScore)
