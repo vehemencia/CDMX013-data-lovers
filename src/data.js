@@ -97,8 +97,4 @@ export let averageScore = sum / arrayScoreMovies.length;
 export let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
 export let máxScore = arrayScoreMovies.reduce((a, b) => Math.max(a, b));
 
-console.log("La puntuación promedio de las películas es de " + averageScore)
-console.log("La puntuacion mínima es " + minScore)
-console.log("La puntuacion máxima es " + máxScore)
-
 accessPeople;
