@@ -36,8 +36,8 @@ header {
 }
 
 body {
-  background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
-  background-repeat: no-repeat;
+  background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png), url(https://i.postimg.cc/6pXcxjBQ/Removal-409.png);
+  background-repeat: no-repeat, repeat;
   background-color: #C2F4F8;
   font-family: 'Roboto Flex', sans-serif;
   background-position: -8px 350px;
@@ -163,7 +163,6 @@ h1 {
 }
 
 #goBack {
-
   background-color: #FFFFFF;
   border: none;
   border-radius: 20px;
@@ -171,4 +170,8 @@ h1 {
   margin-top: 15px;
   width: 200px;
   height: 40px;
+}
+
+footer {
+  text-align: center;
 }
