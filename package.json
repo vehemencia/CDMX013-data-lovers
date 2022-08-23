@@ -28,8 +28,11 @@
   },
   "devDependencies": {
     "jest": "^28.1.3"
+<<<<<<< HEAD
   },
   "jest": {
     "testEnvironment": "jest-environment-jsdom"
+=======
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   }
 }

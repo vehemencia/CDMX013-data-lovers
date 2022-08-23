@@ -3,11 +3,19 @@
 }
 
 header {
+<<<<<<< HEAD
   background-color: #f5a661;
   text-align: left;
   display: flex;
   justify-content: space-between;
   align-items: center;
+=======
+  background-color: #F5A661;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
 }
 
 #ghilogo {
@@ -16,9 +24,15 @@ header {
   margin-left: 40px;
 }
 
+<<<<<<< HEAD
 #funFacts{
   color:  #7A0E07;
   background-color: #f5a661;
+=======
+#funFacts {
+  color: #7A0E07;
+  background-color: #F5A661;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   border: none;
   text-align: center;
   font-size: 18px;
@@ -26,7 +40,11 @@ header {
 }
 
 #searchbox {
+<<<<<<< HEAD
   background-color: #fae6ce;
+=======
+  background-color: #FAE6CE;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   border: none;
   border-radius: 20px;
   float: right;
@@ -38,7 +56,11 @@ header {
 body {
   background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
   background-repeat: no-repeat;
+<<<<<<< HEAD
   background-color: #c2f4f8;
+=======
+  background-color: #C2F4F8;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   font-family: 'Roboto Flex', sans-serif;
   background-position: -8px 350px;
   background-size: 350px;
@@ -46,7 +68,11 @@ body {
 }
 
 #sortBy {
+<<<<<<< HEAD
   background-color: #f5705a;
+=======
+  background-color: #F5705A;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   height: 50px;
   display: flex;
   justify-content: flex-end;
@@ -62,13 +88,21 @@ body {
   border: none;
   border-radius: 20px;
   font-size: medium;
+<<<<<<< HEAD
   color: #ffffff;
+=======
+  color: #FFFFFF;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
 }
 
 #completeRoot {
   display: flex;
   padding-top: 20px;
+<<<<<<< HEAD
 } 
+=======
+}
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
 
 #filtersRoot {
   display: flex;
@@ -127,7 +161,11 @@ h1 {
 
 #resetfilters {
   background-color: #802620;
+<<<<<<< HEAD
   color: #ffffff;
+=======
+  color: #FFFFFF;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   border: none;
   border-radius: 20px;
   width: 200px;
@@ -149,15 +187,20 @@ h1 {
   position: -webkit-sticky;
 }
 
+<<<<<<< HEAD
 .filters:hover{
 margin-bottom: 120px;
 }
 
 #moreInfo{
+=======
+#moreInfo {
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   background-color: #7A0E07;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+<<<<<<< HEAD
 }
 
 #goBack {
@@ -165,4 +208,11 @@ margin-bottom: 120px;
   height: 40px;
   border-radius: 20px;
   border: none;
+=======
+  height: 100vh;
+}
+
+#textGhibli {
+  text-align: center;
+>>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
 }
