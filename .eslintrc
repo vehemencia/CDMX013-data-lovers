@@ -1,9 +1,6 @@
 {
   "env": {
-    "browser": true,
-    "jest": true,
-    "node": true
-
+    "browser": true
   },
   "parserOptions": {
     "ecmaVersion": 2018,
@@ -12,9 +9,5 @@
   "extends": "eslint:recommended",
   "rules": {
     "no-console": "warn"
-<<<<<<< HEAD
-/*     "import/extensions": 0 */
-=======
->>>>>>> a55b4e8d12fcdfc26e2482877a0b87bfac09551a
   }
 }
