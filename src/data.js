@@ -88,10 +88,6 @@ let accessPeople = filmCalculations.map(x => {
 
 })
 
-console.log("Número de mujeres: " + arrayFemale.length);
-console.log("Número de hombres: " + arrayMale.length);
-console.log("Otros géneros: " + arrayOtherGenders.length)
-
 let sum = arrayScoreMovies.reduce((a, b) => (a + b));
 export let averageScore = sum / arrayScoreMovies.length;
 export let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
