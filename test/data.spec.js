@@ -65,3 +65,14 @@ describe("orderByScorePlus", () => {
   });
 
 });
+
+describe("orderByScorePlus", () => {
+  it('Es una función', () => {
+    expect(typeof orderByScorePlus).toBe('function');
+  });
+
+  test("Regresa The Tale of the Princess Kaguya", () => {
+    expect(arrayWithMovies.sort(orderByScorePlus)[0]).toMatchObject({"title": "The Tale of the Princess Kaguya"})
+  });
+
+});
