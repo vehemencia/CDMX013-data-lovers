@@ -7,7 +7,7 @@ header {
   text-align: left;
   display: flex;
   justify-content: space-between;
-  align-items: center
+  align-items: center;
 }
 
 #ghilogo {
@@ -17,16 +17,12 @@ header {
 }
 
 #funFacts{
-  background-color: #ECDECC;
-  color: #000000;
-  width: 200px;
-  height: 40px;
-  border-radius: 20px 0px 20px 0px;
+  color:  #7A0E07;
+  background-color: #f5a661;
   border: none;
   text-align: center;
-  font-size: 17px;
-  margin: 5px;
-  position: -webkit-sticky;
+  font-size: 18px;
+  margin: 20px;
 }
 
 #searchbox {
@@ -153,9 +149,20 @@ h1 {
   position: -webkit-sticky;
 }
 
+.filters:hover{
+margin-bottom: 120px;
+}
+
 #moreInfo{
   background-color: #7A0E07;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+}
+
+#goBack {
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
 }

@@ -14,9 +14,9 @@ describe("globalFilter", () => {
   })
 
   test("La longitud del filtrado de los años 2000-2009 es de 5", () => {
-    expect(globalFilter("00s", "moviedirector", "plus", arrayWithMovies).length === 5).toBe(true)
-    expect(globalFilter("00s", "moviedirector", "plus", arrayWithMovies).length === 5).not.toBe(false)
-    expect(globalFilter("00s", "moviedirector", "plus", arrayWithMovies)).toHaveLength(5)
+    const dataFiltrada = globalFilter("00s", "moviedirector", "plus", arrayWithMovies);
+    expect(dataFiltrada).toHaveLength(5);
+    expect(dataFiltrada.length === 5).not.toBe(false)
   })
 
   test("El arreglo que recibe la selección de 2010 a la actualidad del director Isao Takahata es el de película The Tale of the Princess Kaguya", () => {

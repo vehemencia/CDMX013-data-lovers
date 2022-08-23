@@ -72,6 +72,8 @@ function showFunFacts(){
     </ul>
     <button id="goBack">Regresar</button>
     `
+
+    document.getElementById("goBack").addEventListener("click", hideFunFacts);
     }
 
     function hideFunFacts() {
@@ -80,4 +82,3 @@ function showFunFacts(){
     }
     
     document.getElementById("funFacts").addEventListener("click", showFunFacts);
-    document.getElementById("goBack").addEventListener("click", hideFunFacts);
