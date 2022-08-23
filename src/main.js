@@ -67,10 +67,12 @@ function showFunFacts(){
     <h1>¿Te interesa conocer datos sobre la puntuación de estos filmes?</h1>
     <ul>
     <li>🥇🥈🥉 La puntuación promedio es de ${averageScore} puntos.</li>
-    <li>🎬⭐ La puntuación mínima corresponde a ${minScore} puntos.</li>
-    <li>🎬⭐⭐⭐⭐⭐ La puntuación máxima es de ${máxScore} puntos.</li>
+    <li>🎬 ⭐ La puntuación mínima corresponde a ${minScore} puntos.</li>
+    <li>🎬 ⭐⭐⭐⭐⭐ La puntuación máxima es de ${máxScore} puntos.</li>
     </ul>
+    <div>
     <button id="goBack">Regresar</button>
+    </div>
     `
 
     document.getElementById("goBack").addEventListener("click", hideFunFacts);
