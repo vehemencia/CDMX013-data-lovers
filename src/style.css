@@ -1,139 +1,162 @@
 * {
-    margin: 0px;
-  }
-  
-  header {
-    background-color: #f5a661;
-    text-align: left;
-    display: flex;
-  }
-  
-  #ghilogo {
-    height: 150px;
-    width: auto;
-    margin-left: 40px;
-  }
-  
-  #searchbox {
-    background-color: #fae6ce;
-    border: none;
-    border-radius: 20px;
-    float: right;
-    height: 40px;
-    width: 250px;
-    display: none;
-  }
-  
-  body {
-    background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
-    background-repeat: no-repeat;
-    background-color: #c2f4f8;
-    font-family: 'Roboto Flex', sans-serif;
-    background-position: -8px 350px;
-    background-size: 350px;
-    font-size: 17px;
-  }
-  
-  #sortBy {
-    background-color: #f5705a;
-    height: 50px;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding-right: 60px;
-  }
-  
-  #sortingMenu {
-    background-color: #DDBC94;
-    height: 25px;
-    width: 225px;
-    text-align: right;
-    border: none;
-    border-radius: 20px;
-    font-size: medium;
-    color: #ffffff;
-  }
-  
-  #completeRoot {
-    display: flex;
-    padding-top: 20px;
-  } 
+  margin: 0px;
+}
 
-  #filtersRoot {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    text-align: center;
-    padding-left: 40px;
-  }
+header {
+  background-color: #F5A661;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center
+}
 
-  #root {
-    /* padding-left: 380px; */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    flex-grow: 2;
-  }
-  
-  .card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: #E9974F;
-    border-radius: 20px;
-    margin: 20px;
-    width: 300px;
-    font-family: 'Roboto Flex', sans-serif;
-    padding-bottom: 20px;
-  }
-  
-  h1 {
-    margin-top: 20px;
-    font-size: 20px;
-    width: auto;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-  }
-  
-  .cardPoster {
-    height: 300px;
-    width: auto;
-    margin-bottom: 15px;
-    margin-top: 10px;
-  }
-  
-  .moreInfoButton {
-    border-radius: 20px;
-    border: none;
-    background-color: #DFF681;
-    font-size: 15px;
-    font-weight: 700;
-    margin-top: 10px;
-    display: none;
-  }
-  
-  #resetfilters {
-    background-color: #802620;
-    color: #ffffff;
-    border: none;
-    border-radius: 20px;
-    width: 200px;
-    height: 40px;
-    font-size: 17px;
-    margin: 20px;
-  }
-  
-  .filters {
-    background-color: #ECDECC;
-    color: #000000;
-    width: 200px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    text-align: center;
-    font-size: 17px;
-    margin: 5px;
-    position: -webkit-sticky;
-  }
+#ghilogo {
+  height: 150px;
+  width: auto;
+  margin-left: 40px;
+}
+
+#funFacts {
+  color: #7A0E07;
+  background-color: #F5A661;
+  border: none;
+  text-align: center;
+  font-size: 18px;
+  margin: 20px;
+}
+
+#searchbox {
+  background-color: #FAE6CE;
+  border: none;
+  border-radius: 20px;
+  float: right;
+  height: 40px;
+  width: 250px;
+  display: none;
+}
+
+body {
+  background-image: url(https://i.postimg.cc/BQztvsj0/Capture.png);
+  background-repeat: no-repeat;
+  background-color: #C2F4F8;
+  font-family: 'Roboto Flex', sans-serif;
+  background-position: -8px 350px;
+  background-size: 350px;
+  font-size: 17px;
+}
+
+#sortBy {
+  background-color: #F5705A;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 60px;
+}
+
+#sortingMenu {
+  background-color: #DDBC94;
+  height: 25px;
+  width: 225px;
+  text-align: right;
+  border: none;
+  border-radius: 20px;
+  font-size: medium;
+  color: #FFFFFF;
+}
+
+#completeRoot {
+  display: flex;
+  padding-top: 20px;
+}
+
+#filtersRoot {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  text-align: center;
+  padding-left: 40px;
+}
+
+#root {
+  /* padding-left: 380px; */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-grow: 2;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: #E9974F;
+  border-radius: 20px;
+  margin: 20px;
+  width: 300px;
+  font-family: 'Roboto Flex', sans-serif;
+  padding-bottom: 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-size: 20px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cardPoster {
+  height: 300px;
+  width: auto;
+  margin-bottom: 15px;
+  margin-top: 10px;
+}
+
+.moreInfoButton {
+  border-radius: 20px;
+  border: none;
+  background-color: #DFF681;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 10px;
+  display: none;
+}
+
+#resetfilters {
+  background-color: #802620;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  width: 200px;
+  height: 40px;
+  font-size: 17px;
+  margin: 20px;
+}
+
+.filters {
+  background-color: #ECDECC;
+  color: #000000;
+  width: 200px;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  text-align: center;
+  font-size: 17px;
+  margin: 5px;
+  position: -webkit-sticky;
+}
+
+#moreInfo {
+  background-color: #7A0E07;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100vh;
+}
+
+#textGhibli {
+  text-align: center;
+}

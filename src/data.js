@@ -39,65 +39,66 @@ export function globalFilter(year, director, order, array) {
     }
     console.log(filteredMovies);
     // Aquí retorna las películas filtradas por año y director. Igual si se le aplicó sort.
-        return filteredMovies;
+    return filteredMovies;
 }
 
 
 // Funciones de ordenamiento alfabético.
-function orderByLetterA(a, b) {
+export function orderByLetterA(a, b) {
     if (a.title < b.title) {
         return -1;
     }
 }
 
-function orderByLetterZ(a, b) {
+export function orderByLetterZ(a, b) {
     if (a.title > b.title) {
         return -1;
     }
 }
 
 // Funciones de ordenamiento por puntuación.
-function orderByScoreMinus(a, b) {
+export function orderByScoreMinus(a, b) {
     return a.rt_score - b.rt_score;
 }
 
-function orderByScorePlus(a, b) {
+export function orderByScorePlus(a, b) {
     return b.rt_score - a.rt_score;
 }
 
 // Cálculos agregados
 
-// let filmCalculations = ghibli.films;
-// let arrayFemale = [];
-// let arrayMale = [];
-// let arrayOtherGenders = [];
-// let arrayScoreMovies = [];
+let filmCalculations = ghibli.films;
+export let arrayFemale = [];
+export let arrayMale = [];
+export let arrayOtherGenders = [];
+export let arrayScoreMovies = [];
 
-// let accessPeople = filmCalculations.map(x => {
-//     x.people.map(y => {
-//         if (y.gender == "Female") {
-//             arrayFemale.push(y.gender);
-//         } else if (y.gender == "Male") {
-//             arrayMale.push(y.gender);
-//         } else {
-//             arrayOtherGenders.push(y.gender);
-//         }
-//     })
-//     let scoreNumbers = (Number(x.rt_score))
-//     arrayScoreMovies.push(scoreNumbers);
+let accessPeople = filmCalculations.map(x => {
+    x.people.map(y => {
+        if (y.gender == "Female") {
+            arrayFemale.push(y.gender);
+        } else if (y.gender == "Male") {
+            arrayMale.push(y.gender);
+        } else {
+            arrayOtherGenders.push(y.gender);
+        }
+    })
+    let scoreNumbers = (Number(x.rt_score))
+    arrayScoreMovies.push(scoreNumbers);
 
-// })
+})
 
-// // console.log("Número de mujeres: " + arrayFemale.length);
-// // console.log("Número de hombres: " + arrayMale.length);
-// // console.log("Otros géneros: " + arrayOtherGenders.length)
+console.log("Número de mujeres: " + arrayFemale.length);
+console.log("Número de hombres: " + arrayMale.length);
+console.log("Otros géneros: " + arrayOtherGenders.length)
 
+let sum = arrayScoreMovies.reduce((a, b) => (a + b));
+export let averageScore = sum / arrayScoreMovies.length;
+export let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
+export let máxScore = arrayScoreMovies.reduce((a, b) => Math.max(a, b));
 
-// let sum = arrayScoreMovies.reduce((a, b) => (a + b));
-// let averageScore = sum / arrayScoreMovies.length;
-// let minScore = arrayScoreMovies.reduce((a, b) => Math.min(a, b));
-// let máxScore = arrayScoreMovies.reduce((a, b) => Math.max(a, b));
+console.log("La puntuación promedio de las películas es de " + averageScore)
+console.log("La puntuacion mínima es " + minScore)
+console.log("La puntuacion máxima es " + máxScore)
 
-// // console.log("La puntuación promedio de las películas es de " + averageScore)
-// // console.log("La puntuacion mínima es " + minScore)
-// // console.log("La puntuacion máxima es " + máxScore)
+accessPeople;
