@@ -159,4 +159,15 @@ h1 {
 
 #textGhibli {
   text-align: center;
+  color: #FFFFFF;
+}
+
+#goBack{
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  font-size: 18px;
+  margin-top: 15px;
+  width: 200px;
+  height: 40px;
 }
