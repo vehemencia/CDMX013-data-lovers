@@ -1,12 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>Data Lovers</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <title>Studio Ghibli Collection</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header>
+    <img src="https://i.postimg.cc/DydYXxdd/glogo.png" id="ghilogo">
+    <button id="funFacts"> 🤓 Datos curiosos</button>
+  </header>
+  <div id="sortBy">
+    <select id="sortingMenu">
+      <option id="blankId" value="notSorted">Ordenar por:</option>
+      <option id="aToZ" value="AZ">Ascendente: de la A a la Z</option>
+      <option id="zToA" value="ZA">Descendente: de la Z a la A</option>
+      <option id="rTminus" value="minus">De menor a mayor puntuación</option>
+      <option id="rTplus" value="plus">De mayor a menor puntuación</option>
+    </select>
+  </div>
+  <div id="completeRoot">
+    <div id="filtersRoot">
+      <p>Filtrar por</p>
+      <p><select id="movieyears" class="filters">
+          <option id="year" value="releaseyear">Año de lanzamiento</option>
+          <option id="80" value="80s">1980 a 1989</option>
+          <option id="90" value="90s">1990 a 1999</option>
+          <option id="20" value="00s">2000 a 2009</option>
+          <option id="21" value="10s">2010 a la actualidad</option>
+        </select></p>
+      <p><select id="filmdirector" class="filters">
+          <option id="director" value="moviedirector">Director</option>
+          <option id="Hayao" value="Hayao Miyazaki">Hayao Miyazaki</option>
+          <option id="Hiroyuki" value="Hiroyuki Morita">Hiroyuki Morita</option>
+          <option id="Isao" value="Isao Takahata">Isao Takahata</option>
+          <option id="Yoshifumi" value="Yoshifumi Kondō">Yoshifumi Kondō</option>
+          <option id="Goro" value="Gorō Miyazaki">Gorō Miyazaki</option>
+          <option id="Hiromasa" value="Hiromasa Yonebayashi">Hiromasa Yonebayashi</option>
+        </select></p>
+      <button type="button" id="resetfilters">Limpiar filtros</button>
+    </div>
     <div id="root"></div>
-    <script src="main.js" type="module"></script>
-  </body>
+  </div>
+  <div id="moreInfo" style="display:none;">
+    <img src="https://media.giphy.com/media/xY7HprawfZGUxVAdGY/giphy.gif">
+    <div id="textGhibli"></div>
+    <img src="https://media.giphy.com/media/0CtSrP8NAt0Htxc1sz/giphy.gif">
+  </div>
+  <script src="main.js" type="module"></script>
+  <footer>© 2005-2022 STUDIO GHIBLI Inc. Proyecto elaborado para Laboratoria por Marlene Saucedo y Fernanda Alvarez.</footer>
+</body>
+
 </html>
