@@ -33,7 +33,7 @@ Los primeros prototipos consistieron en los de baja fidelidad.
 ![Prototipo de baja fidelidad2](images/prototipo-papel-2.jpg)
 
 2.2 Prototipo de alta fidelidad
-![Prototipo de alta fidelidad](images/primer-boceto.jpg)
+![Prototipo de alta fidelidad](images/primer-boceto.PNG)
 
 Se recibió feedback y se realizaron cambios al prototipo para adaptarlo a las necesidades del usuario. Se eliminó el ícono de cesto de basura, remplazándolo por un botón de "limpiar filtros" y el ícono de la lupa ya no se agregó porque no se implementó la búsqueda en nuestras historias de usuario.
 
@@ -54,3 +54,5 @@ Yo como usuario de Ghibli quiero poder hacer todo lo de las historias anteriores
 ## 4. Pruebas unitarias
 
 Se realizaron pruebas a las principales funciones: de ordenamiento y filtrado.
+
+![Despliegue de pruebas unitarias](images/pruebas-unitarias.PNG)
