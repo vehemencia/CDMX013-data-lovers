@@ -18,12 +18,10 @@ export function globalFilter(year, director, order, array) {
         } else if (year == "10s") {
             filteredMovies = array.filter(a => a.release_date >= "2010");
         }
-        console.log(filteredMovies)
     }
     // Si es "moviedirector", significa que no hay filtro.
     if (director != "moviedirector") {
         filteredMovies = filteredMovies.filter(a => a.director == director);
-        console.log(filteredMovies);
     }
     // Acá se ordenan los datos filtrados.
     if (order != "notSorted") {
@@ -37,7 +35,6 @@ export function globalFilter(year, director, order, array) {
             filteredMovies = filteredMovies.sort(orderByScorePlus);
         }
     }
-    console.log(filteredMovies);
     // Aquí retorna las películas filtradas por año y director. Igual si se le aplicó sort.
     return filteredMovies;
 }
