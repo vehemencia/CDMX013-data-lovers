@@ -39,7 +39,6 @@ export function globalFilter(year, director, order, array) {
     return filteredMovies;
 }
 
-
 // Funciones de ordenamiento alfabético.
 export function orderByLetterA(a, b) {
     if (a.title < b.title) {
