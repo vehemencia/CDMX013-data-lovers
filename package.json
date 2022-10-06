@@ -1,16 +1,16 @@
 {
   "name": "data-lovers",
   "version": "1.0.0",
-  "main": "src/index.html",
+  "main": "index.html",
   "license": "MIT",
   "scripts": {
-    "htmlhint": "htmlhint src/*.html test/*.html",
+    "htmlhint": "htmlhint .html test/.html",
     "eslint": "eslint --ext .js src/ test/",
     "pretest": "npm run eslint && npm run htmlhint",
     "test": "jest --verbose --coverage",
     "open-coverage-report": "opener ./coverage/lcov-report/index.html",
-    "start": "serve src/",
-    "deploy": "gh-pages -d src"
+    "start": "serve",
+    "deploy": "gh-pages -d ./index.html"
   },
   "dependencies": {
     "@babel/core": "^7.6.2",
